@@ -20,7 +20,6 @@ spec:
       containers:
       - name: es
         securityContext:
-          privileged: true
           capabilities:
             add:
               - IPC_LOCK
@@ -91,6 +90,7 @@ spec:
         component: eventer
     spec:
       serviceAccountName: elasticsearch
+      hostNetwork: true
       containers:
       - name: eventer 
         image: docker.io/rootfs/eventer
